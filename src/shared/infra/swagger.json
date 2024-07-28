@@ -1,0 +1,603 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API - Soraia",
+    "description": "API de Backend para o Teste Natura."
+  },
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/user": {
+      "post": {
+        "tags": [
+          "Usuário"
+        ],
+        "summary": "Cria um novo usuário",
+        "description": "Cria um novo usuário",
+        "parameters": [
+          {
+            "name": "",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "teste@teste.com"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "1234@Abcd"
+                },
+                "profile": {
+                  "type": "string",
+                  "example": "user"
+                },
+                "isGuest": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Soraia"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "example": 999
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "teste@teste.com"
+                    },
+                    "profile": {
+                      "type": "string",
+                      "example": "user"
+                    },
+                    "isGuest": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Soraia"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "example": "2024-07-27T00:00:00.000Z"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "example": "2024-07-27T00:00:00.000Z"
+                    },
+                    "deleted_at": {
+                      "type": "string",
+                      "example": "2024-07-27T00:00:00.000Z"
+                    }
+                  }
+                },
+                "token": {
+                  "type": "string",
+                  "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            },
+            "description": "Created"
+          }
+        },
+        "autoBody": true,
+        "autoQuery": true,
+        "autoHeaders": true
+      }
+    },
+    "/cart": {
+      "post": {
+        "tags": [
+          "Carrinho"
+        ],
+        "summary": "Cria um carrinho",
+        "description": "Cria um novo carrinho para o usuário ativo",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "example": 999
+                },
+                "user_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "paid": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "pay_day": {},
+                "created_at": {
+                  "type": "string",
+                  "example": "2024-07-27T00:00:00.000Z"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "example": "2024-07-27T00:00:00.000Z"
+                }
+              },
+              "required": [
+                "id",
+                "user_id",
+                "paid",
+                "pay_day",
+                "created_at",
+                "updated_at"
+              ],
+              "xml": {
+                "name": "main"
+              }
+            },
+            "description": "Created"
+          }
+        },
+        "autoBody": true,
+        "autoQuery": true,
+        "autoHeaders": true
+      }
+    },
+    "/item": {
+      "post": {
+        "tags": [
+          "Items"
+        ],
+        "summary": "Adiciona items ao carrinho",
+        "description": "Adiciona items ao carrinho para o usuário ativo",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cartId": {
+                  "type": "number",
+                  "example": 1
+                },
+                "productId": {
+                  "type": "number",
+                  "example": 1
+                },
+                "quantity": {
+                  "type": "number",
+                  "example": 1
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "paid": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "pay_day": {},
+                "created_at": {
+                  "type": "string",
+                  "example": "2024-07-27T00:00:00.000Z"
+                },
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "example": 5
+                      },
+                      "quantity": {
+                        "type": "number",
+                        "example": 3
+                      },
+                      "product": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 1
+                          },
+                          "name": {
+                            "type": "string",
+                            "example": "Una Blush 75 ml"
+                          },
+                          "short_description": {
+                            "type": "string",
+                            "example": "A fragrância icônica de Una Blush em uma edição especial com embalagem colecionável."
+                          },
+                          "long_description": {
+                            "type": "string",
+                            "example": "Inspirado no elegante retorno do brilho à maquiagem e à perfumaria, o Deo Parfum Una Blush traz a sofisticação da flor de laranjeira e um toque único de breu branco, resina amazônica natural da biodiversidade brasileira.​ Una acredita na beleza genuína, a beleza de se sentir bem na própria pele, própria de uma mulher que se conhece, se valoriza e se expressa com a elegância de fragrâncias marcantes.​"
+                          },
+                          "composition": {
+                            "type": "string",
+                            "example": "{'ALCOHOL','ÁLCOOL ETÍLICO','PARFUM','PERFUME','AQUA','ÁGUA','BENZYL SALICYLATE','SALICILATO DE BENZILA','LIMONENE'}"
+                          },
+                          "value": {
+                            "type": "number",
+                            "example": 78.85
+                          },
+                          "in_stock": {
+                            "type": "boolean",
+                            "example": true
+                          },
+                          "url_image": {
+                            "type": "string",
+                            "example": "https://production.na01.natura.com/on/demandware.static/-/Sites-NatBrazil-Library/default/dw0bad0999/Produtos%20Joia/2024/01/NATBRA-128756/128756_BENEFICIOS.jpg"
+                          },
+                          "category_id": {
+                            "type": "number",
+                            "example": 1
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "example": "2024-07-28T08:50:47.000Z"
+                          },
+                          "updated_at": {
+                            "type": "string",
+                            "example": "2024-07-28T08:50:47.000Z"
+                          },
+                          "deleted_at": {}
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            },
+            "description": "Created"
+          }
+        },
+        "autoBody": true,
+        "autoQuery": true,
+        "autoHeaders": true
+      }
+    },
+    "/item/{id}": {
+      "put": {
+        "tags": [
+          "Items"
+        ],
+        "summary": "Edita os items do carrinho",
+        "description": "Edita os items do carrinho para o usuário ativo",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Id do item a ser alterado.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "integer"
+                },
+                "example": {
+                  "type": "number",
+                  "example": 1
+                }
+              }
+            }
+          },
+          {
+            "name": "token",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "quantity": {
+                  "type": "number",
+                  "example": 2
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "paid": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "pay_day": {},
+                "created_at": {
+                  "type": "string",
+                  "example": "2024-07-27T00:00:00.000Z"
+                },
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "example": 5
+                      },
+                      "quantity": {
+                        "type": "number",
+                        "example": 3
+                      },
+                      "product": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number",
+                            "example": 1
+                          },
+                          "name": {
+                            "type": "string",
+                            "example": "Una Blush 75 ml"
+                          },
+                          "short_description": {
+                            "type": "string",
+                            "example": "A fragrância icônica de Una Blush em uma edição especial com embalagem colecionável."
+                          },
+                          "long_description": {
+                            "type": "string",
+                            "example": "Inspirado no elegante retorno do brilho à maquiagem e à perfumaria, o Deo Parfum Una Blush traz a sofisticação da flor de laranjeira e um toque único de breu branco, resina amazônica natural da biodiversidade brasileira.​ Una acredita na beleza genuína, a beleza de se sentir bem na própria pele, própria de uma mulher que se conhece, se valoriza e se expressa com a elegância de fragrâncias marcantes.​"
+                          },
+                          "composition": {
+                            "type": "string",
+                            "example": "{'ALCOHOL','ÁLCOOL ETÍLICO','PARFUM','PERFUME','AQUA','ÁGUA','BENZYL SALICYLATE','SALICILATO DE BENZILA','LIMONENE'}"
+                          },
+                          "value": {
+                            "type": "number",
+                            "example": 78.85
+                          },
+                          "in_stock": {
+                            "type": "boolean",
+                            "example": true
+                          },
+                          "url_image": {
+                            "type": "string",
+                            "example": "https://production.na01.natura.com/on/demandware.static/-/Sites-NatBrazil-Library/default/dw0bad0999/Produtos%20Joia/2024/01/NATBRA-128756/128756_BENEFICIOS.jpg"
+                          },
+                          "category_id": {
+                            "type": "number",
+                            "example": 1
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "example": "2024-07-28T08:50:47.000Z"
+                          },
+                          "updated_at": {
+                            "type": "string",
+                            "example": "2024-07-28T08:50:47.000Z"
+                          },
+                          "deleted_at": {}
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            },
+            "description": "OK"
+          }
+        },
+        "autoBody": true,
+        "autoQuery": true,
+        "autoHeaders": true
+      },
+      "delete": {
+        "tags": [
+          "Items"
+        ],
+        "summary": "Deleta items do carrinho",
+        "description": "Deleta items do carrinho do usuário ativo",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Id do item a ser deleteado do carrinho."
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "autoBody": true,
+        "autoQuery": true,
+        "autoHeaders": true
+      }
+    },
+    "/product": {
+      "get": {
+        "tags": [
+          "Produtos"
+        ],
+        "summary": "Listagem de produtos",
+        "description": "Apresenta uma lista dos produtos disponíveis.",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+            }
+          },
+          {
+            "name": "categoryId",
+            "in": "query",
+            "description": "ID da categoria para filtrar os produtos.",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "integer"
+                },
+                "example": {
+                  "type": "number",
+                  "example": 1
+                }
+              }
+            }
+          },
+          {
+            "name": "text",
+            "in": "query",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "example": {
+                  "type": "string",
+                  "example": "perfume"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de produtos",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "products": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "example": 1
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "Una Blush 75 ml"
+                      },
+                      "short_description": {
+                        "type": "string",
+                        "example": "A fragrância icônica de Una Blush em uma edição especial com embalagem colecionável."
+                      },
+                      "long_description": {
+                        "type": "string",
+                        "example": "Inspirado no elegante retorno do brilho à maquiagem e à perfumaria, o Deo Parfum Una Blush traz a sofisticação da flor de laranjeira e um toque único de breu branco, resina amazônica natural da biodiversidade brasileira.​ Una acredita na beleza genuína, a beleza de se sentir bem na própria pele, própria de uma mulher que se conhece, se valoriza e se expressa com a elegância de fragrâncias marcantes.​"
+                      },
+                      "composition": {
+                        "type": "string",
+                        "example": "{\"ALCOHOL\",\"ÁLCOOL ETÍLICO\",\"PARFUM\",\"PERFUME\",\"AQUA\",\"ÁGUA\",\"BENZYL SALICYLATE\",\"SALICILATO DE BENZILA\",\"LIMONENE\"}"
+                      },
+                      "value": {
+                        "type": "number",
+                        "example": 78.85
+                      },
+                      "in_stock": {
+                        "type": "boolean",
+                        "example": true
+                      },
+                      "url_image": {
+                        "type": "string",
+                        "example": "https://production.na01.natura.com/on/demandware.static/-/Sites-NatBrazil-Library/default/dw0bad0999/Produtos%20Joia/2024/01/NATBRA-128756/128756_BENEFICIOS.jpg"
+                      },
+                      "category_id": {
+                        "type": "number",
+                        "example": 1
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "example": "2024-07-28T08:50:47.000Z"
+                      },
+                      "updated_at": {
+                        "type": "string",
+                        "example": "2024-07-28T08:50:47.000Z"
+                      },
+                      "deleted_at": {}
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        },
+        "autoBody": true,
+        "autoQuery": true,
+        "autoHeaders": true
+      }
+    }
+  }
+}
