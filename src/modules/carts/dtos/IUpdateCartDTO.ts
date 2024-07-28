@@ -3,6 +3,7 @@ interface IUpdateCartDTO {
     paid: boolean;
     userId: number;
     payDay?: Date;
+    voucherId?:number
 }
 
 export { IUpdateCartDTO };

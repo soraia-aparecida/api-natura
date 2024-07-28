@@ -4,6 +4,7 @@ import { productRouter } from "@modules/products/infra/http/routes/product.route
 import { userRouter } from "@modules/users/infra/http/routes/user.routes";
 import { Router } from "express";
 import { ensureAuthenticated } from "../middlewares/auth";
+import { voucherRouter } from "@modules/vouchers/infra/http/routes/voucher.routes";
 
 const routes = Router();
 
@@ -11,5 +12,6 @@ routes.use("/user", userRouter);
 routes.use("/product", ensureAuthenticated, productRouter);
 routes.use("/cart", ensureAuthenticated, cartRouter);
 routes.use("/item", ensureAuthenticated, cartProductRouter);
+routes.use("/voucher", ensureAuthenticated, voucherRouter);
 
 export { routes };

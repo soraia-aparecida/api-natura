@@ -44,6 +44,8 @@ class CartRepository implements ICartRepository {
                     'cart.paid',
                     'cart.pay_day',
                     'cart.created_at',
+                    'cart.user_id',
+                    'cart.voucher_id',
                 ]);
 
             if (returnRelation) {
@@ -67,7 +69,8 @@ class CartRepository implements ICartRepository {
         try {
             const result = await this.ormRepository.update(data.id!, {
                 ...(data.paid && { paid: data.paid }),
-                ...(data.pay_day && { pay_day: data.pay_day })
+                ...(data.pay_day && { pay_day: data.pay_day }),
+                ...(data.voucher_id && { voucher_id: data.voucher_id })
             });
 
             console.debug({ "result update cart": result });

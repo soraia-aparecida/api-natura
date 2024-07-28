@@ -1,22 +1,25 @@
+import { IVoucherRepository } from "@modules/vouchers/repositories/IVoucherRepository";
 import { inject, injectable } from "tsyringe";
-import { ICartRepository } from "../repositories/ICartRepository";
-import { Cart } from "../infra/typeorm/entities/Cart";
-import { CustomError } from "../../../shared/errors/CustomError";
+import { CustomError } from '../../../shared/errors/CustomError';
+import { ICartRepository } from "../../carts/repositories/ICartRepository";
 import { IUpdateCartDTO } from "../dtos/IUpdateCartDTO";
+import { Cart } from "../infra/typeorm/entities/Cart";
 
-injectable()
+@injectable()
 class UpdateCartService {
     constructor(
         @inject("CartRepository")
-        private cartRepository: ICartRepository
+        private cartRepository: ICartRepository,
+        @inject("VoucherRepository")
+        private voucherRepository: IVoucherRepository
     ) {
-        console.info("Update cart - service");
+        console.info("Create new cart - service");
     }
 
     public async execute(data: IUpdateCartDTO): Promise<Cart> {
-
         try {
-            const { id, paid, payDay, userId } = data;
+            const { id, paid, userId, voucherId } = data;
+            console.log("🚀 ~ UpdateCartService ~ execute ~ userId:", userId)
 
             const cart = await this.cartRepository.findById(id);
 
@@ -28,19 +31,35 @@ class UpdateCartService {
                 throw new CustomError("Ação não permitida", 403);
             };
 
+            if (voucherId) {
+                const voucher = await this.voucherRepository.findById(voucherId);
+                if (!voucher) {
+                    throw new CustomError("Voucher não encontrado", 404);
+                }
+            };
+
+            let payDay = null;
+
+            if (!!paid && !cart.paid) {
+                payDay = new Date();
+            }
+
             await this.cartRepository.update({
                 id,
                 paid,
-                pay_day: payDay
+                pay_day: payDay,
+                voucher_id: voucherId
             });
 
-            const actualCart = await this.cartRepository.findById(id);
+            const actualCart =  await this.cartRepository.findById(id);
+            console.log("🚀 ~ UpdateCartService ~ execute ~ actualCart:", actualCart)
             return actualCart!;
 
         } catch (error: any) {
+            console.log("🚀 ~ UpdateCartService ~ execute ~ error:", error)
             throw new CustomError(error?.message || error?.sqlMessage || JSON.stringify(error));
         }
     }
-};
+}
 
 export { UpdateCartService };

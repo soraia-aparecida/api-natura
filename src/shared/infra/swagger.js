@@ -8,6 +8,7 @@ const endpointsFiles = [
   "src/modules/carts/infra/http/routes/cart.routes.ts",
   "src/modules/cartsProducts/infra/http/routes/cartProduct.routes.ts",
   "src/modules/products/infra/http/routes/product.routes.ts",
+  "src/modules/vouchers/infra/http/routes/voucher.routes.ts",
 ];
 
 const doc = {

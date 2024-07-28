@@ -14,6 +14,9 @@ import { UserRepository } from "@modules/users/infra/typeorm/repository/UserRepo
 import { IUserRepository } from "@modules/users/repositories/IUserRepository";
 import { CreateUserService } from "@modules/users/services/CreateUserService";
 import { MeUserService } from "@modules/users/services/MeUserService";
+import { VoucherRepository } from "@modules/vouchers/infra/typeorm/repository/VoucherRepository";
+import { IVoucherRepository } from "@modules/vouchers/repositories/IVoucherRepository";
+import { GetVoucherByNameService } from "@modules/vouchers/services/GetVoucherByNameService";
 import { Authentication } from "@shared/utils/Authentication";
 import { HasManager } from "@shared/utils/HasManager";
 import { container } from "tsyringe";
@@ -86,4 +89,14 @@ container.registerSingleton<DeleteCartProductService>(
 container.registerSingleton<UpdateCartProductService>(
     "UpdateCartProductService",
     UpdateCartProductService,
+);
+
+container.registerSingleton<IVoucherRepository>(
+    "VoucherRepository",
+    VoucherRepository,
+);
+
+container.registerSingleton<GetVoucherByNameService>(
+    "GetVoucherByNameService",
+    GetVoucherByNameService,
 );

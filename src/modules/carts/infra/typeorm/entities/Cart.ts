@@ -14,7 +14,6 @@ import {
 import { CartProduct } from "../../../../cartsProducts/infra/typeorm/entities/CartProduct";
 import { User } from "@modules/users/infra/typeorm/entities/User";
 
-
 @Entity("carts")
 class Cart {
     @PrimaryGeneratedColumn("increment")
@@ -48,6 +47,9 @@ class Cart {
 
     @DeleteDateColumn({ nullable: true })
     deleted_at: Date | null;
+
+    @Column({ nullable: true })
+    voucher_id: number;
 }
 
 export { Cart };
