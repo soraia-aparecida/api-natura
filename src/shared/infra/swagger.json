@@ -741,6 +741,66 @@
         "autoQuery": true,
         "autoHeaders": true
       }
+    },
+    "/pcategory": {
+      "get": {
+        "tags": [
+          "Categorias"
+        ],
+        "summary": "Listagem das categorias",
+        "description": "Apresenta uma listagem das categorias de produtos disponíveis.",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de categorias",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "categories": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number",
+                        "example": 1
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "presentes"
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "example": "2024-07-28T08:50:48.000Z"
+                      },
+                      "updated_at": {
+                        "type": "string",
+                        "example": "2024-07-28T08:50:48.000Z"
+                      },
+                      "deleted_at": {}
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        },
+        "autoBody": true,
+        "autoQuery": true,
+        "autoHeaders": true
+      }
     }
   }
 }
