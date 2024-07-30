@@ -57,7 +57,8 @@ class UpdateCartService {
 
         } catch (error: any) {
             console.log("🚀 ~ UpdateCartService ~ execute ~ error:", error)
-            throw new CustomError(error?.message || error?.sqlMessage || JSON.stringify(error));
+            const status = error?.statusCode ?? 400;
+            throw new CustomError(error?.message || error?.sqlMessage || JSON.stringify(error), status);
         }
     }
 }
