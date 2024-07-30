@@ -120,16 +120,6 @@
         ],
         "summary": "Cria um carrinho",
         "description": "Cria um novo carrinho para o usuário ativo",
-        "parameters": [
-          {
-            "name": "token",
-            "in": "header",
-            "schema": {
-              "type": "string",
-              "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-            }
-          }
-        ],
         "responses": {
           "201": {
             "schema": {
@@ -172,6 +162,11 @@
             "description": "Created"
           }
         },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "autoBody": true,
         "autoQuery": true,
         "autoHeaders": true
@@ -183,23 +178,6 @@
         "summary": "Edita um carrinho",
         "description": "Edita o carrinho do usuário ativo",
         "parameters": [
-          {
-            "name": "token",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "paid": {
-                  "type": "boolean",
-                  "example": true
-                },
-                "voucherId": {
-                  "type": "number",
-                  "example": 1
-                }
-              }
-            }
-          },
           {
             "name": "id",
             "in": "path",
@@ -213,6 +191,23 @@
                   "example": "integer"
                 },
                 "example": {
+                  "type": "number",
+                  "example": 1
+                }
+              }
+            }
+          },
+          {
+            "name": "",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "paid": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "voucherId": {
                   "type": "number",
                   "example": 1
                 }
@@ -262,6 +257,11 @@
             "description": "OK"
           }
         },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "autoBody": true,
         "autoQuery": true,
         "autoHeaders": true
@@ -276,7 +276,7 @@
         "description": "Adiciona items ao carrinho para o usuário ativo",
         "parameters": [
           {
-            "name": "token",
+            "name": "",
             "in": "body",
             "schema": {
               "type": "object",
@@ -389,6 +389,11 @@
             "description": "Created"
           }
         },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "autoBody": true,
         "autoQuery": true,
         "autoHeaders": true
@@ -545,14 +550,6 @@
             "required": true,
             "type": "string",
             "description": "Id do item a ser deleteado do carrinho."
-          },
-          {
-            "name": "token",
-            "in": "header",
-            "schema": {
-              "type": "string",
-              "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-            }
           }
         ],
         "responses": {
@@ -560,6 +557,11 @@
             "description": "OK"
           }
         },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "autoBody": true,
         "autoQuery": true,
         "autoHeaders": true
@@ -573,14 +575,6 @@
         "summary": "Listagem de produtos",
         "description": "Apresenta uma lista dos produtos disponíveis.",
         "parameters": [
-          {
-            "name": "token",
-            "in": "header",
-            "schema": {
-              "type": "string",
-              "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-            }
-          },
           {
             "name": "categoryId",
             "in": "query",
@@ -684,6 +678,11 @@
             }
           }
         },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "autoBody": true,
         "autoQuery": true,
         "autoHeaders": true
@@ -697,14 +696,6 @@
         "summary": "Busca um cupom de desconto",
         "description": "Busca um cupom de desconto válido",
         "parameters": [
-          {
-            "name": "token",
-            "in": "header",
-            "schema": {
-              "type": "string",
-              "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-            }
-          },
           {
             "name": "name",
             "in": "query",
@@ -729,7 +720,37 @@
           "200": {
             "schema": {
               "type": "object",
-              "properties": {},
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "type": {
+                  "type": "string",
+                  "example": "fixed​"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "DESCONTO25"
+                },
+                "price": {
+                  "type": "number",
+                  "example": 25
+                },
+                "is_valid": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "created_at": {
+                  "type": "string",
+                  "example": "2024-07-28T18:47:05.000Z"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "example": "2024-07-28T18:47:05.000Z"
+                },
+                "deleted_at": {}
+              },
               "xml": {
                 "name": "main"
               }
@@ -737,6 +758,11 @@
             "description": "OK"
           }
         },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "autoBody": true,
         "autoQuery": true,
         "autoHeaders": true
@@ -749,16 +775,6 @@
         ],
         "summary": "Listagem das categorias",
         "description": "Apresenta uma listagem das categorias de produtos disponíveis.",
-        "parameters": [
-          {
-            "name": "token",
-            "in": "header",
-            "schema": {
-              "type": "string",
-              "example": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "Lista de categorias",
@@ -797,10 +813,29 @@
             }
           }
         },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "autoBody": true,
         "autoQuery": true,
         "autoHeaders": true
       }
     }
-  }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ]
 }

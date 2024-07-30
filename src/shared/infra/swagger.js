@@ -24,6 +24,20 @@ const doc = {
   consumes: ["application/json"],
   produces: ["application/json"],
   definitions: {},
+  components: {
+    securitySchemes: {
+      bearerAuth: {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'JWT',
+      },
+    },
+  },
+  security: [
+    {
+      bearerAuth: [],
+    },
+  ],
 };
 
 swaggerAutogen()(outputFile, endpointsFiles, doc);

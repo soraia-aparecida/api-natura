@@ -16,11 +16,9 @@ voucherRouter.get(
         #swagger.summary = 'Busca um cupom de desconto'
         #swagger.description = 'Busca um cupom de desconto válido'
 
-         #swagger.parameters[''] = {
-            name: "token",
-            in: 'header',
-            schema: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-        }
+        #swagger.security = [{
+            "bearerAuth": []
+        }]
 
         #swagger.parameters[name'] = {
             in: 'query',
@@ -33,7 +31,16 @@ voucherRouter.get(
         }
     
         #swagger.responses[200] = {
-          schema: {}
+            schema: {
+                id: 1,
+                type: "fixed​",
+                name: "DESCONTO25",
+                price: 25,
+                is_valid: true,
+                created_at: "2024-07-28T18:47:05.000Z",
+                updated_at: "2024-07-28T18:47:05.000Z",
+                deleted_at: null
+            }
         }
     */
     celebrate({

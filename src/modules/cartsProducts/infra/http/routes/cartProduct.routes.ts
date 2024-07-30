@@ -16,11 +16,9 @@ cartProductRouter.post(
     #swagger.summary = 'Adiciona items ao carrinho'
     #swagger.description = 'Adiciona items ao carrinho para o usuário ativo'
 
-    #swagger.parameters[''] = {
-        name: "token",
-        in: 'header',
-        schema: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-    }
+    #swagger.security = [{
+        "bearerAuth": []
+    }]
 
     #swagger.parameters[''] = {
         in: 'body',
@@ -154,11 +152,9 @@ cartProductRouter.delete(
         #swagger.summary = 'Deleta items do carrinho'
         #swagger.description = 'Deleta items do carrinho do usuário ativo'
 
-        #swagger.parameters[''] = {
-            name: "token",
-            in: 'header',
-            schema: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-        }
+        #swagger.security = [{
+            "bearerAuth": []
+        }]
 
         #swagger.parameters['id'] = {
             in: 'path',

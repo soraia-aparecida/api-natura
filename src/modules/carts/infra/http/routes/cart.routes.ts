@@ -15,11 +15,9 @@ cartRouter.post(
         #swagger.summary = 'Cria um carrinho'
         #swagger.description = 'Cria um novo carrinho para o usuário ativo'
 
-        #swagger.parameters[''] = {
-            name: "token",
-            in: 'header',
-            schema: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-        }
+        #swagger.security = [{
+            "bearerAuth": []
+        }]
     
         #swagger.responses[201] = {
             schema:{
@@ -46,11 +44,9 @@ cartRouter.put(
         #swagger.summary = 'Edita um carrinho'
         #swagger.description = 'Edita o carrinho do usuário ativo'
 
-        #swagger.parameters[''] = {
-          name: "token",
-          in: 'header',
-          schema: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-        }
+        #swagger.security = [{
+            "bearerAuth": []
+        }]
 
         #swagger.parameters['id'] = {
             in: 'path',

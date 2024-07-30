@@ -15,11 +15,9 @@ categoryRouter.get(
         #swagger.summary = 'Listagem das categorias'
         #swagger.description = 'Apresenta uma listagem das categorias de produtos disponíveis.'
 
-        #swagger.parameters[''] = {
-            name: "token",
-            in: 'header',
-            schema: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-        }
+        #swagger.security = [{
+            "bearerAuth": []
+        }]
 
         #swagger.responses[200] = {
         description: "Lista de categorias",
