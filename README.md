@@ -48,3 +48,9 @@ Para rodar as migrations, utilize o comando abaixo:
 ```bash
 $ npm run typeorm migration:run
 ```
+
+### Url de acesso
+- https://api-natura-567ac41af756.herokuapp.com
+
+### Documentação - Swagger
+- https://api-natura-567ac41af756.herokuapp.com/api-docs
