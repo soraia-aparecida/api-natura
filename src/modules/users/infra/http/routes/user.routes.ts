@@ -21,8 +21,8 @@ userRouter.post(
         schema: {
           email: "teste@teste.com",
           password: "1234@Abcd",
-          profile: "user",
-          isGuest: true,
+          $profile: "user",
+          $isGuest: true,
           name: "Soraia"
         }
       }

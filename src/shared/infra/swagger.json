@@ -50,7 +50,11 @@
                   "type": "string",
                   "example": "Soraia"
                 }
-              }
+              },
+              "required": [
+                "profile",
+                "isGuest"
+              ]
             }
           }
         ],
@@ -768,7 +772,7 @@
         "autoHeaders": true
       }
     },
-    "/pcategory": {
+    "/category": {
       "get": {
         "tags": [
           "Categorias"

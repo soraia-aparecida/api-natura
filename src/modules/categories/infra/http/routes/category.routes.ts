@@ -11,7 +11,7 @@ categoryRouter.get(
         #swagger.autoBody=true
         #swagger.autoQuery=true
         #swagger.autoHeaders=true
-        #swagger.path="/pcategory"
+        #swagger.path="/category"
         #swagger.summary = 'Listagem das categorias'
         #swagger.description = 'Apresenta uma listagem das categorias de produtos disponíveis.'
 
