@@ -7,6 +7,10 @@ import { ICartProductRepository } from "@modules/cartsProducts/repositories/ICar
 import { CreateCartProductService } from "@modules/cartsProducts/services/CreateCartProductService";
 import { DeleteCartProductService } from "@modules/cartsProducts/services/DeleteCartProductService";
 import { UpdateCartProductService } from "@modules/cartsProducts/services/UpdateCartProductService";
+import { CategoryRepository } from "@modules/categories/infra/typeorm/repository/CategoryRepository";
+import { ICategoryRepository } from "@modules/categories/repositories/ICategoryRepository";
+import { CreateCategoryService } from "@modules/categories/services/CreateCategoryService";
+import { SimpleListCategoriesService } from "@modules/categories/services/SimpleListCategoriesService";
 import { ProductRepository } from "@modules/products/infra/typeorm/repository/ProductRepository";
 import { IProductRepository } from "@modules/products/repositories/IProductRepository";
 import { ListProductsService } from "@modules/products/services/ListProductsService";
@@ -99,4 +103,19 @@ container.registerSingleton<IVoucherRepository>(
 container.registerSingleton<GetVoucherByNameService>(
     "GetVoucherByNameService",
     GetVoucherByNameService,
+);
+
+container.registerSingleton<SimpleListCategoriesService>(
+    "SimpleListCategoriesService",
+    SimpleListCategoriesService,
+);
+
+container.registerSingleton<ICategoryRepository>(
+    "CategoryRepository",
+    CategoryRepository,
+);
+
+container.registerSingleton<CreateCategoryService>(
+    "CreateCategoryService",
+    CreateCategoryService,
 );

@@ -52,6 +52,15 @@ class Product {
 
     @DeleteDateColumn({ nullable: true })
     deleted_at: Date | null | null;
+
+    @Column({ nullable: true })
+    rating: number;
+
+    @Column({ nullable: true })
+    discount: boolean;
+
+    @Column({ nullable: true })
+    discount_percentage: number;
 }
 
 export { Product };
