@@ -12,7 +12,7 @@ import {
 } from "typeorm";
 
 import { CartProduct } from "../../../../cartsProducts/infra/typeorm/entities/CartProduct";
-import { User } from "@modules/users/infra/typeorm/entities/User";
+import { User } from "../../../../users/infra/typeorm/entities/User";
 
 @Entity("carts")
 class Cart {

@@ -1,4 +1,4 @@
-import { IUserRepository } from "@modules/users/repositories/IUserRepository";
+import { IUserRepository } from "../../users/repositories/IUserRepository";
 import { inject, injectable } from "tsyringe";
 import { CustomError } from '../../../shared/errors/CustomError';
 import { ICartRepository } from "../../carts/repositories/ICartRepository";

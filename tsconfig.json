@@ -8,8 +8,10 @@
     "baseUrl": "./src",
     "paths": {
       "@modules/*": ["modules/*"],
+      "@shared/*": ["shared/*"],
       "@config/*": ["config/*"],
-      "@shared/*": ["shared/*"]
+      "@utils/*": ["utils/*"],
+      "@errors/*": ["errors/*"]
     },
     "outDir": "./dist",
     "esModuleInterop": true,
@@ -24,5 +26,5 @@
     "noImplicitAny": true
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules"] 
+  "exclude": ["node_modules"]
 }

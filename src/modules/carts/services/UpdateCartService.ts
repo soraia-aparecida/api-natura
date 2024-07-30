@@ -1,4 +1,4 @@
-import { IVoucherRepository } from "@modules/vouchers/repositories/IVoucherRepository";
+import { IVoucherRepository } from "../../vouchers/repositories/IVoucherRepository";
 import { inject, injectable } from "tsyringe";
 import { CustomError } from '../../../shared/errors/CustomError';
 import { ICartRepository } from "../../carts/repositories/ICartRepository";

@@ -1,8 +1,8 @@
 import "reflect-metadata"
-import { FakeUserRepository } from "@modules/users/repositories/fake/FakeUserRepositoty";
+import { FakeUserRepository } from "../../users/repositories/fake/FakeUserRepositoty";
 import { Cart } from "../infra/typeorm/entities/Cart";
 import { FakeCartRepository } from "../repositories/fake/FakeCartRepository";
-import { CartProduct } from '@modules/cartsProducts/infra/typeorm/entities/CartProduct';
+import { CartProduct } from '../../cartsProducts/infra/typeorm/entities/CartProduct';
 
 describe('CreateCartService', () => {
     let fakeCartRepository: FakeCartRepository;

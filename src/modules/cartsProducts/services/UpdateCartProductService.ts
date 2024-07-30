@@ -3,7 +3,7 @@ import { CustomError } from '../../../shared/errors/CustomError';
 import { ICartRepository } from "../../carts/repositories/ICartRepository";
 import { IUpdateCartProductDTO } from "../dtos/IUpdateCartProductDTO";
 import { ICartProductRepository } from "../repositories/ICartProductRepository";
-import { Cart } from "@modules/carts/infra/typeorm/entities/Cart";
+import { Cart } from "../../carts/infra/typeorm/entities/Cart";
 
 @injectable()
 class UpdateCartProductService {

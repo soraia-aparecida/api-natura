@@ -1,9 +1,9 @@
 import "reflect-metadata"
 import { injectable } from "tsyringe";
 import { ICategoryRepository } from "../ICategoryRepository";
-import { Category } from "@modules/categories/infra/typeorm/entities/Category";
-import { ICreateCategoryDTO } from "@modules/categories/dtos/ICreateCategoryDTO";
-import { IListCategoriesDTO } from "@modules/categories/dtos/IListCategoriesDTO";
+import { Category } from "../../../categories/infra/typeorm/entities/Category";
+import { ICreateCategoryDTO } from "../../../categories/dtos/ICreateCategoryDTO";
+import { IListCategoriesDTO } from "../../../categories/dtos/IListCategoriesDTO";
 
 @injectable()
 class FakeCategoryRepository implements ICategoryRepository {

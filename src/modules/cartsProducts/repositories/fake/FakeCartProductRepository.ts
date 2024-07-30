@@ -1,8 +1,8 @@
 import "reflect-metadata"
 import { injectable } from "tsyringe";
 import { ICartProductRepository } from "../ICartProductRepository";
-import { CartProduct } from "@modules/cartsProducts/infra/typeorm/entities/CartProduct";
-import { ICreateCartProductDTO } from "@modules/cartsProducts/dtos/ICreateCartProductDTO";
+import { CartProduct } from "../../../cartsProducts/infra/typeorm/entities/CartProduct";
+import { ICreateCartProductDTO } from "../../../cartsProducts/dtos/ICreateCartProductDTO";
 
 
 @injectable()

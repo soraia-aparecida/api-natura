@@ -1,5 +1,5 @@
 import "reflect-metadata"
-import { FakeUserRepository } from "@modules/users/repositories/fake/FakeUserRepositoty";
+import { FakeUserRepository } from "../../users/repositories/fake/FakeUserRepositoty";
 import { User } from "../infra/typeorm/entities/User";
 
 describe('CreateUserService', () => {

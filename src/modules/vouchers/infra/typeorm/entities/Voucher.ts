@@ -1,12 +1,9 @@
 
-import { Cart } from "@modules/carts/infra/typeorm/entities/Cart";
 import {
     Column,
     CreateDateColumn,
     DeleteDateColumn,
     Entity,
-    JoinColumn,
-    OneToMany,
     PrimaryGeneratedColumn,
     UpdateDateColumn
 } from "typeorm";

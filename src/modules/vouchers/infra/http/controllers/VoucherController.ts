@@ -1,4 +1,4 @@
-import { GetVoucherByNameService } from "@modules/vouchers/services/GetVoucherByNameService";
+import { GetVoucherByNameService } from "../../../../vouchers/services/GetVoucherByNameService";
 import { Request, Response } from "express";
 import { container } from "tsyringe";
 

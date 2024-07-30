@@ -1,8 +1,8 @@
 import "reflect-metadata"
 import { injectable } from "tsyringe";
 import { IUserRepository } from "../IUserRepository";
-import { User } from "@modules/users/infra/typeorm/entities/User";
-import { ICreateUserDTO } from "@modules/users/dtos/ICreateUserDTO";
+import { User } from "../../../users/infra/typeorm/entities/User";
+import { ICreateUserDTO } from "../../../users/dtos/ICreateUserDTO";
 
 @injectable()
 class FakeUserRepository implements IUserRepository {

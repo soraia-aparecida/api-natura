@@ -1,5 +1,5 @@
-import { CreateCartService } from "@modules/carts/services/CreateCartService";
-import { UpdateCartService } from "@modules/carts/services/UpdateCartService";
+import { CreateCartService } from "../../../services/CreateCartService";
+import { UpdateCartService } from "../../../services/UpdateCartService";
 import { Request, Response } from "express";
 import { container } from "tsyringe";
 

@@ -1,4 +1,4 @@
-import { Voucher } from "@modules/vouchers/infra/typeorm/entities/Voucher";
+import { Voucher } from "../../../vouchers/infra/typeorm/entities/Voucher";
 import { IVoucherRepository } from "../IVoucherRepository";
 
 class FakeVoucherRepository implements IVoucherRepository {

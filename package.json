@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/infra/app.js",
+    "start": "node dist/shared/infra/app.js",
     "dev": "ts-node-dev --inspect --transpile-only -r tsconfig-paths/register  --ignore-watch node_modules src/shared/infra/app.ts",
     "test": "jest",
     "swagger-autogen": "node src/shared/infra/swagger.js",

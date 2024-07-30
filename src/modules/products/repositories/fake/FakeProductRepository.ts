@@ -1,9 +1,9 @@
 import "reflect-metadata"
 import { injectable } from "tsyringe";
 import { IProductRepository } from "../IProductRepository";
-import { Product } from "@modules/products/infra/typeorm/entities/Product";
-import { ICreateProductDTO } from "@modules/products/dtos/ICreateProductDTO";
-import { IListProductsDTO } from "@modules/products/dtos/IListProductsDTO";
+import { Product } from "../../../products/infra/typeorm/entities/Product";
+import { ICreateProductDTO } from "../../../products/dtos/ICreateProductDTO";
+import { IListProductsDTO } from "../../../products/dtos/IListProductsDTO";
 
 @injectable()
 class FakeProductRepository implements IProductRepository {

@@ -1,7 +1,7 @@
-import { IVoucherRepository } from "@modules/vouchers/repositories/IVoucherRepository";
+import { IVoucherRepository } from "../../../../vouchers/repositories/IVoucherRepository";
 import { Voucher } from "../entities/Voucher";
 import { getRepository, Repository } from "typeorm";
-import { CustomError } from "@shared/errors/CustomError";
+import { CustomError } from "../../../../../shared/errors/CustomError";
 
 class VoucherRepository implements IVoucherRepository {
     private ormRepository: Repository<Voucher>;

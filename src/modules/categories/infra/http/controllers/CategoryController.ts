@@ -1,4 +1,4 @@
-import { SimpleListCategoriesService } from "@modules/categories/services/SimpleListCategoriesService";
+import { SimpleListCategoriesService } from "../../../../categories/services/SimpleListCategoriesService";
 import { Request, Response } from "express";
 import { container } from "tsyringe";
 

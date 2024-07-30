@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { container } from "tsyringe";
 import { CreateCartProductService } from "../../../services/CreateCartProductService";
 import { DeleteCartProductService } from "../../../services/DeleteCartProductService";
-import { UpdateCartProductService } from "@modules/cartsProducts/services/UpdateCartProductService";
+import { UpdateCartProductService } from "../../../services/UpdateCartProductService";
 
 class CartProductController {
     public async create(request: Request, response: Response): Promise<Response> {
